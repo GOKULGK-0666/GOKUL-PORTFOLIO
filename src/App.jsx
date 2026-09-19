@@ -12,7 +12,6 @@ import Skills from './components/Skills'
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
-  const [showAllCertificates, setShowAllCertificates] = useState(false)
 
   return (
     <div className="site-shell">
@@ -22,10 +21,7 @@ export default function App() {
         <About />
         <Projects />
         <Experience />
-        <Certificates
-          showAll={showAllCertificates}
-          setShowAll={setShowAllCertificates}
-        />
+        <Certificates />
         <Resume />
         <Skills />
         <Contact />

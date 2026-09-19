@@ -159,6 +159,9 @@ export const experience = [
     'Jun 2026 – Aug 2026',
     'Worked across front-end and back-end development, contributing to debugging, feature implementation, testing, and real-world MERN workflows.',
   ],
+]
+
+export const education = [
   [
     'Bachelor of Engineering — Computer Science and Engineering',
     'Mahendra College of Engineering · Salem, Tamil Nadu · CGPA: 7.77',

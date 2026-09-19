@@ -11,6 +11,7 @@ const projects = [
     tags: ['React', 'TypeScript', 'Node.js', 'MongoDB'],
     color: 'coral',
     video: `${import.meta.env.BASE_URL}assets/project-videos/cyberintel.mp4`,
+    sourceCode: 'https://github.com/GOKULGK-0666/Cyber-Intel.git',
   },
   {
     number: '02',
@@ -21,16 +22,18 @@ const projects = [
     tags: ['React', 'Node.js', 'Express.js', 'MongoDB'],
     color: 'blue',
     video: `${import.meta.env.BASE_URL}assets/project-videos/e-commerce.mp4`,
+    sourceCode: 'https://github.com/GOKULGK-0666/E-commerce-.git',
   },
   {
     number: '03',
-    title: 'Netflix Clone',
-    type: 'Streaming Platform Interface',
+    title: 'Weather App',
+    type: 'TypeScript Weather Application',
     description:
-      'A responsive Netflix-inspired application that fetches real-time movie and TV content from the TMDB API, with routing and conditional rendering.',
-    tags: ['React', 'Node.js', 'CSS3', 'TMDB API'],
+      'A responsive weather application built with TypeScript that presents current conditions and forecast information through a clean, focused interface.',
+    tags: ['TypeScript', 'React', 'API Integration', 'CSS3'],
     color: 'green',
-    video: `${import.meta.env.BASE_URL}assets/project-videos/netflix-clone.mp4`,
+    video: `${import.meta.env.BASE_URL}assets/project-videos/weather-app.mp4`,
+    sourceCode: 'https://github.com/GOKULGK-0666/Weather-App.git',
   },
 ]
 
@@ -84,6 +87,17 @@ function Projects() {
                       <span key={tag}>{tag}</span>
                     ))}
                   </div>
+                </div>
+
+                <div className="project-links">
+                  <a
+                    className="button button-dark project-source-link"
+                    href={project.sourceCode}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    Source code <ExternalLink size={14} />
+                  </a>
                 </div>
               </div>
             </article>

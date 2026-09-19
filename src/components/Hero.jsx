@@ -5,9 +5,25 @@ import {
   Linkedin,
   MoveUpRight,
 } from 'lucide-react'
+import { useRef } from 'react'
 import AnimatedLetters from './AnimatedLetters'
 
 export default function Hero() {
+  const portraitMotionRef = useRef(null)
+
+  const handlePortraitMove = (event) => {
+    const bounds = event.currentTarget.getBoundingClientRect()
+    const x = ((event.clientX - bounds.left) / bounds.width - 0.5) * 2
+    const y = ((event.clientY - bounds.top) / bounds.height - 0.5) * 2
+    portraitMotionRef.current?.style.setProperty('--tilt-x', `${y * -2.5}deg`)
+    portraitMotionRef.current?.style.setProperty('--tilt-y', `${x * 2.5}deg`)
+  }
+
+  const resetPortraitTilt = () => {
+    portraitMotionRef.current?.style.setProperty('--tilt-x', '0deg')
+    portraitMotionRef.current?.style.setProperty('--tilt-y', '0deg')
+  }
+
   return (
     <section className="hero section" id="home">
       <div className="hero-copy">
@@ -65,15 +81,22 @@ export default function Hero() {
         </div>
       </div>
       <div className="hero-art" aria-label="Profile photo section">
-        <div className="portrait-frame">
-          <img
-            className="portrait-photo"
-            src={`${import.meta.env.BASE_URL}assets/GK.jpeg`}
-            alt="Gokul S profile"
-          />
-          <div className="portrait-caption">
-            Gokul S<br />
-            <small>Developer / maker</small>
+        <div
+          className="portrait-motion"
+          ref={portraitMotionRef}
+          onMouseMove={handlePortraitMove}
+          onMouseLeave={resetPortraitTilt}
+        >
+          <div className="portrait-frame">
+            <img
+              className="portrait-photo"
+              src={`${import.meta.env.BASE_URL}assets/profile-photo.jpeg`}
+              alt="Gokul S profile"
+            />
+            <div className="portrait-caption">
+              Gokul S<br />
+              <small>Developer / maker</small>
+            </div>
           </div>
         </div>
         <div className="orbit orbit-one" />

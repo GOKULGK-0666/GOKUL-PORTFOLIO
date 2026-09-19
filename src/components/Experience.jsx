@@ -1,4 +1,6 @@
-import { experience } from '../data/portfolio'
+import { education, experience } from '../data/portfolio'
+
+const journey = [...experience, ...education]
 
 export default function Experience() {
   return (
@@ -11,9 +13,9 @@ export default function Experience() {
           <em>through practice.</em>
         </h2>
         <div className="experience-timeline">
-          {experience.map(([title, company, period, description], index) => (
+          {journey.map(([title, company, period, description], index) => (
             <div
-              className={`experience-item ${index % 2 ? 'left' : 'right'}`}
+              className={`experience-item ${index % 2 ? 'right' : 'left'}`}
               key={title}
             >
               <article className="experience-card">
@@ -28,7 +30,7 @@ export default function Experience() {
                 </div>
               </article>
               <span className="experience-dot" aria-hidden="true" />
-              {index < experience.length - 1 && (
+              {index < journey.length - 1 && (
                 <span className="experience-connector" aria-hidden="true" />
               )}
             </div>

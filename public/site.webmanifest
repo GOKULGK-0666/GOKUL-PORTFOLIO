@@ -1,0 +1,17 @@
+{
+  "name": "Gokul S — MERN Developer",
+  "short_name": "Gokul S",
+  "description": "Gokul S — MERN developer creating thoughtful digital experiences.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f1eb",
+  "theme_color": "#f5f1eb",
+  "icons": [
+    {
+      "src": "/assets/gs-logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
