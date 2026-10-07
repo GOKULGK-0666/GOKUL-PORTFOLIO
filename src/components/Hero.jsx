@@ -102,9 +102,9 @@ export default function Hero() {
         <div className="orbit orbit-one" />
         <div className="orbit orbit-two" />
         <div className="art-note">
-          <strong>2+</strong>
+          <strong>Hey hii</strong>
           <br />
-          <span>years experience</span>
+          <span>Vanakkam Makkaleyyy</span>
         </div>
       </div>
       <div className="scroll-cue">
