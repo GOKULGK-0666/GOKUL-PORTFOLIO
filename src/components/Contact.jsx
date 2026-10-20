@@ -1,29 +1,29 @@
 import { useState } from 'react'
-import { ArrowUpRight, Check, Send } from 'lucide-react'
-
-const emailAddress = 'gokulgk0666@gmail.com'
-export const gmailComposeUrl = (subject = '', body = '') =>
-  `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(emailAddress)}&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`
+import { ArrowUpRight, Send } from 'lucide-react'
+import { gmailComposeUrl } from '../utils/gmail'
 
 export default function Contact() {
-  const [status, setStatus] = useState('idle')
+  const [isOpeningGmail, setIsOpeningGmail] = useState(false)
   const [form, setForm] = useState({ name: '', email: '', message: '' })
-  const submitContact = async (event) => {
+
+  const submitContact = (event) => {
     event.preventDefault()
-    setStatus('sending')
-    try {
-      const subject = `Portfolio enquiry from ${form.name}`
-      const body = `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
-      setStatus('sent')
-      window.location.assign(gmailComposeUrl(subject, body))
-    } catch {
-      setStatus('error')
-    }
+    setIsOpeningGmail(true)
+
+    const subject = `Portfolio enquiry from ${form.name}`
+    const body = `Name: ${form.name}\nEmail: ${form.email}\n\n${form.message}`
+    window.location.assign(gmailComposeUrl(subject, body))
   }
+
+  const updateFormField = (event) => {
+    const { name, value } = event.target
+    setForm((currentForm) => ({ ...currentForm, [name]: value }))
+  }
+
   return (
     <section className="contact section" id="contact">
       <div className="contact-intro">
-        <div className="section-label">07 — Contact</div>
+        <div className="section-label">08 — Contact</div>
         <h2>
           Let&apos;s build
           <br />
@@ -48,50 +48,42 @@ export default function Contact() {
         <label>
           Your name
           <input
+            name="name"
             required
             value={form.name}
-            onChange={(e) => setForm({ ...form, name: e.target.value })}
+            onChange={updateFormField}
             placeholder="Gokul S"
           />
         </label>
         <label>
           Email address
           <input
+            name="email"
             required
             type="email"
             value={form.email}
-            onChange={(e) => setForm({ ...form, email: e.target.value })}
+            onChange={updateFormField}
             placeholder="you@example.com"
           />
         </label>
         <label>
           Tell me about it
           <textarea
+            name="message"
             required
             rows="3"
             value={form.message}
-            onChange={(e) => setForm({ ...form, message: e.target.value })}
+            onChange={updateFormField}
             placeholder="A few words about your project..."
           />
         </label>
-        <button className="button button-dark" disabled={status === 'sending'}>
-          {status === 'sending' ? (
-            'Sending…'
-          ) : status === 'sent' ? (
-            <>
-              <Check size={17} /> Message sent
-            </>
-          ) : (
+        <button className="button button-dark" type="submit" disabled={isOpeningGmail}>
+          {isOpeningGmail ? 'Opening Gmail…' : (
             <>
               <Send size={16} /> Send message
             </>
           )}
         </button>
-        {status === 'error' && (
-          <p className="form-error">
-            Something went wrong. Please email me directly.
-          </p>
-        )}
       </form>
     </section>
   )

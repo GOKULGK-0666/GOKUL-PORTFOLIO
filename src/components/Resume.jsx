@@ -4,7 +4,7 @@ export default function Resume() {
   const resumeUrl = `${import.meta.env.BASE_URL}resume.pdf`
   return (
     <section className="resume section" id="resume">
-      <div className="section-label">05 — Resume</div>
+      <div className="section-label">06 — Resume</div>
       <div className="resume-layout">
         <div>
           <h2>

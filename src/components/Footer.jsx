@@ -1,5 +1,5 @@
-import { Github, Instagram, Linkedin, Mail } from 'lucide-react'
-import { gmailComposeUrl } from './Contact'
+import { Github, Linkedin, Mail } from 'lucide-react'
+import { gmailComposeUrl } from '../utils/gmail'
 
 export default function Footer() {
   return (

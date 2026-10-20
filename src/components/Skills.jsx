@@ -72,7 +72,7 @@ export default function Skills() {
 
   return (
     <section className="skills section" id="skills">
-      <div className="section-label">06 — Technical arsenal</div>
+      <div className="section-label">07 — Technical arsenal</div>
       <div className="skills-intro">
         <div>
           <h2>

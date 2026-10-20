@@ -14,7 +14,12 @@ export default function App() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
-    <div className="site-shell">
+    <div
+      className="site-shell"
+      style={{
+        '--portfolio-background-image': `url("${import.meta.env.BASE_URL}assets/bg-img-clean.jpeg")`,
+      }}
+    >
       <Navbar menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
       <main>
         <Hero />

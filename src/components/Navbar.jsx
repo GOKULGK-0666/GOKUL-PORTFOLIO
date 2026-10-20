@@ -4,6 +4,7 @@ const links = [
   'about',
   'work',
   'experience',
+  'achievements',
   'certificates',
   'resume',
   'skills',
@@ -16,7 +17,7 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
       <a href="#home" className="logo" aria-label="Gokul S home">
         G<span>.</span>S
       </a>
-      <nav className={menuOpen ? 'nav-links open' : 'nav-links'}>
+      <nav id="primary-navigation" className={menuOpen ? 'nav-links open' : 'nav-links'}>
         {links.map((item) => (
           <a key={item} href={`#${item}`} onClick={() => setMenuOpen(false)}>
             {item}
@@ -28,8 +29,11 @@ export default function Navbar({ menuOpen, setMenuOpen }) {
       </a>
       <button
         className="menu-toggle"
-        onClick={() => setMenuOpen(!menuOpen)}
+        type="button"
+        onClick={() => setMenuOpen((isOpen) => !isOpen)}
         aria-label="Toggle navigation"
+        aria-expanded={menuOpen}
+        aria-controls="primary-navigation"
       >
         {menuOpen ? <X size={22} /> : <Menu size={22} />}
       </button>
